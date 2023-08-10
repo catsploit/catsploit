@@ -1,0 +1,130 @@
+{
+    #
+    # General setting
+    #
+    "system": {
+        "components": {
+            "SERVER": "cats.server.Server",
+            "DBMS": "cats.server.DBMS",
+            "KS": "cats.server.KnowledgeBase",
+            "SCENARIO": "cats.server.ScenarioMaker",
+            "ATTACKPF": "cats.server.AttackPlatform",
+            "ATTACKDB": "cats.server.AttackDB"
+        },
+        # Interface to UI
+        "rpc": {
+            # ... Public interface to UI
+            "exports": "cats.server.cui_exports",
+
+            # ... Type o IPC on RPC(unix_socket or fifo)
+            "connector": "unix_socket",
+
+            # ... UNIX socket setting
+            "unix_socket": {
+                # ...... UNIX socket file path
+                "path": "/tmp/cats.usock"
+            },
+            # ... FIFO setting
+            "fifo": {
+                # ...... FIFO path of Client -> Server
+                "client_to_server": "/tmp/fifo-cats.c2s",
+                # ...... FIFO path of Server -> Client
+                "server_to_client": "/tmp/fifo-cats.s2c"
+            },
+            # ... Recieve timeout
+            "recv_timeout": 5.0
+        },
+        # Log setting
+        "logging": {
+            # ... Log file name
+            "filename": "/tmp/cats-server.log",
+            # ... Log level(critical, error, warning, info, debug)
+            "level": "warning",
+            # ... Maximum file size of log(MB)
+            "max_megabytes": 10,
+            # ... Back up generation of log
+            "backups": 3
+        }
+    },
+    #
+    # Database setting
+    #
+    "DBMS": {
+        # name of database
+        "dbname": "catsdb",
+        # username
+        "user": "postgres",
+        # password
+        "password": "password",
+        # hostname,post number(if connect via network)
+        #"host":"localhost",
+        #"port":5432
+    },
+    #
+    # Knowledge setting
+    #
+    "KS": {
+    },
+    #
+    # attack scenario setting
+    #
+    "SCENARIO": {
+        "depends": [],
+        # attack scenario generation
+        "generator":{
+            # ... max scenarios
+            "maxscenarios":15,
+            # ... scenario helper path
+            "helper": ["python3","./cats-helpers/scenario_helper.py"],
+            # ... pddl file path
+            "pddl": {
+                "domain":"./cats/data/output/pddl/domain.pddl",
+                "problem":"./cats/data/output/pddl/problem.pddl"
+            }
+        },
+        # pre-knowledge file path
+        "evc":{
+            "varprob":"./cats/data/input/evc/varprob_def.json",
+            "map":"./cats/data/input/evc/festimated_map.json",
+            "target":"./cats/data/input/evc/targets.json"
+        }
+    },
+    #
+    # Request processing setting
+    #
+    "SERVER": {
+        "depends": [],
+        # search secret file keyword
+        "search_key": "password|secret|confidential"
+    },
+    #
+    # attack platform setting
+    #
+    "ATTACKPF": {
+        "depends": [],
+        # password of msfrpcd
+        "msfpassword": "password",
+        # openvas setting
+        "openvas": {
+            # ... openvas helper file path
+            "helper":["python3","./cats-helpers/openvas_helper.py"],
+            # ... UNIX socket file path of openvas(gvmd)
+            "socket": "/run/gvmd/gvmd.sock",
+            # ... openvas username
+            "user": "admin",
+            # ... openvas password
+            "password": "password",
+            # ... max hosts
+            "maxhosts": "20",
+            # ... max checks
+            "maxchecks": "4"
+        }
+    },
+    #
+    # attack database setting
+    #
+    "ATTACKDB": {
+        "depends": [],
+        "attack_db_dir": "./cats/db/attack_db/"
+    }
+}
