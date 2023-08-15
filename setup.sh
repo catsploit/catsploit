@@ -17,6 +17,6 @@ systemctl stop postgresql
 systemctl stop ospd-openvas
 gvm-setup
 usermod -aG _gvm kali
-sudo -u _gvm gvmd --user=admin --new-password=admin
+sudo -u _gvm gvmd --user=admin --new-password=password
 gvm-check-setup
 chmod u+s /usr/bin/nmap
