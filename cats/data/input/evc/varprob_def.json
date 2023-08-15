@@ -1,0 +1,208 @@
+[
+    {
+        "varname": "os",
+        "depends": [],
+        "values": [
+            "Windows 10 21H2", 
+            "Windows 10 21H1",
+            "Windows 10 20H2",
+            "Windows 10 2004",
+            "Windows 10 1909",
+            "Windows 10 1903",
+            "Windows 10 1809 BEFORE",
+            "Windows 7 SP1",
+            "Windows Server 2008 R2 SP1",
+            "Desktop Windows OTHER",
+            "Windows Server OTHER",
+            "Linux",
+            "Mac OS X",
+            "OTHER"
+        ]
+    },
+    {
+        "varname": "arch",
+        "depends": ["os"],
+        "values": [
+            "x64",
+            "x86"
+        ]
+    },
+    {
+        "varname": "CVE-2014-3120",
+        "depends": ["os"],
+        "values": [
+            "yes",
+            "no"
+        ]
+    },
+    {
+        "varname": "CVE-2015-8249",
+        "depends": ["os"],
+        "values": [
+            "yes",
+            "no"
+        ]
+    },
+    {
+        "varname": "CVE-2016-3087",
+        "depends": ["port-9200"],
+        "values": [
+            "yes",
+            "no"
+        ]
+    },
+    {
+        "varname": "CVE-2014-3704",
+        "depends": ["os"],
+        "values": [
+            "yes",
+            "no"
+        ]
+    },
+    {
+        "varname": "domain_join",
+        "depends": ["os"],
+        "values": [
+            "yes",
+            "no"
+        ]
+    },
+    {
+        "varname": "localaccounttokenfilterpolicy",
+        "depends": ["os"],
+        "values": [
+            "0",
+            "0 OTHER"
+        ]
+    },
+    {
+        "varname": "save_credential",
+        "depends": [],
+        "values": [
+            "None",
+            "User",
+            "Admin"
+        ]
+    },
+    {
+        "varname": "login_attempt_limit",
+        "depends": ["os"],
+        "values": [
+            "Unlimited",
+            "10",
+            "3"
+        ]
+    },
+    {
+        "varname": "jenkins_auth",
+        "depends": ["os"],
+        "values": [
+            "yes",
+            "no"
+        ]
+    },
+    {
+        "varname": "dmi",
+        "depends": ["os"],
+        "values": [
+            "yes",
+            "no"
+        ]
+    },
+    {
+        "varname": "dynamicscript",
+        "depends": ["elastic-version"],
+        "values": [
+            "t",
+            "f"
+        ]
+    },
+    {
+        "varname": "port-22",
+        "depends": ["os"],
+        "values": [
+            "Open",
+            "Close"
+        ]
+    },
+    {
+        "varname": "port-443",
+        "depends": ["os"],
+        "values": [
+            "Open",
+            "Close"
+        ]
+    },
+    {
+        "varname": "port-445",
+        "depends": ["os"],
+        "values": [
+            "Open",
+            "Close"
+        ]
+    },
+    {
+        "varname": "port-80",
+        "depends": ["os"],
+        "values": [
+            "Open",
+            "Close"
+        ]
+    },
+    {
+        "varname": "port-8020",
+        "depends": ["os"],
+        "values": [
+            "Open",
+            "Close"
+        ]
+    },
+    {
+        "varname": "port-8040",
+        "depends": ["os"],
+        "values": [
+            "Open",
+            "Close"
+        ]
+    },
+    {
+        "varname": "port-8484",
+        "depends": ["os"],
+        "values": [
+            "Open",
+            "Close"
+        ]
+    },
+    {
+        "varname": "port-9200",
+        "depends": ["os"],
+        "values": [
+            "Open",
+            "Close"
+        ]
+    },
+    {
+        "varname": "elastic-version",
+        "depends": ["os"],
+        "values": [
+            "1.3 AFTER",
+            "1.2 BEFORE"
+        ]
+    },
+    {
+        "varname": "manageengine_version",
+        "depends": ["os"],
+        "values": [
+            "91093 AFTER",
+            "91092 BEFORE"
+        ]
+    },
+    {
+        "varname": "auth_type",
+        "depends": [],
+        "values": [
+            "Password",
+            "OTHER"
+        ]
+    }
+]

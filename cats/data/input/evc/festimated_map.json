@@ -1,0 +1,43 @@
+{            
+    "Microsoft Windows 10 1709 - 1909":[
+        "Windows 10 1909", 
+        "Windows 10 1903",
+        "Windows 10 1809 BEFORE"
+    ],
+    "Microsoft Windows XP SP3":["Desktop Windows OTHER"],
+    "Microsoft Windows XP SP2":["Desktop Windows OTHER"],
+    "Microsoft Windows 7":["Windows 7 SP1"],
+    "Microsoft Windows 7 SP1":["Windows 7 SP1"],
+    "Microsoft Windows Server 2008 SP1":["Windows Server 2008 R2 SP1"],
+    "Windows Server 2008 R2":["Windows Server 2008 R2 SP1"],
+    " Microsoft Windows Server 2008 SP1 or Windows Server 2008 R2":[
+        "Windows Server 2008 R2 SP1",
+        "Windows Server 2008 R2 SP1"
+    ],
+    "Microsoft Windows Server 2008 R2 Standard  6.1.7601 Service Pack 1 Build 7601":["Windows Server 2008 R2 SP1"],
+    "Windows":[
+        "Windows Server 2008 R2 SP1",
+        "Windows Server 2008 R2 SP1",
+        "Windows 10 1909", 
+        "Windows 10 1903",
+        "Windows 10 1809 BEFORE",
+        "Windows 7 SP1"
+    ],
+    "kali 2022.4":["Linux"],
+    "Linux 2.6.32":["Linux"],
+    "Linux 3.2 - 4.9":["Linux"],
+    "Linux 3.10 - 4.11":["Linux"],
+    "Linux":["Linux"],
+    "ubuntu 14.04":["Linux"],
+    "CVE-2014-3120":"",
+    "CVE-2015-8249":"",
+    "CVE-2016-3087":"",
+    "CVE-2014-3704":"",
+    "port-22":"",
+    "port-443":"",
+    "port-445":"",
+    "port-80":"",
+    "port-8020":"",
+    "port-8040":"",
+    "port-8484":""
+}
