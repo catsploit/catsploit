@@ -1,0 +1,4 @@
+{
+    "auxiliary/scanner/ssh/ssh_login":["login_attempt_limit"],
+    "auxiliary/scanner/smb/smb_login":["login_attempt_limit"]
+}
