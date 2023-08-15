@@ -1,4 +1,4 @@
-# CATSploit
+# CATSploit🐈
 CATSploit is an automated penetration testing tool using Cyber Attack Techniques Scoring (CATS) method that can be used without pentester.
 Currently, pentesters implicitly made the selection of suitable attack techniques for target systems to be attacked.
 CATSploit uses system configuration information such as OS, open ports, software version collected by scanner and calculates a score value for capture eVc and detectability eVd of each attack techniques for target system.
