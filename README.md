@@ -47,8 +47,8 @@ To install the latest version of CATSploit, please use the following commands:
 ```
 $ git clone https://github.com/catsploit/catsploit.git
 $ cd catsploit
-$ git clone https://github.com/catsploit/cats-helper.git
-$ sudo ./setup.sh
+$ git clone https://github.com/catsploit/cats-helpers.git
+$ sudo sh ./setup.sh
 ```
 
 #### Editing configuration file
